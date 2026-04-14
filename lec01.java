@@ -3,9 +3,9 @@ import java.util.*;
 public class lec01 {
     public static Scanner scn = new Scanner(System.in);
 
-    public static void reverseDigs(int n) { 
+    public static void reverseDigs(int n) {
         int rem = 0;
-        while(n != 0) {
+        while (n != 0) {
             rem = n % 10;
             n /= 10;
             System.out.println(rem);
@@ -16,16 +16,16 @@ public class lec01 {
         int a = 0;
         int b = 1;
         int temp = 0;
-        
+
         for (int i = 0; i < n; i++) {
             System.out.println(a);
             temp = a + b;
-            a = b; 
+            a = b;
             b = temp;
         }
     }
 
-    public static void frequencyOfDig (int n, int digit) {
+    public static void frequencyOfDig(int n, int digit) {
         int count = 0;
         while (n != 0) {
             int lastDig = n % 10;
@@ -57,9 +57,37 @@ public class lec01 {
         }
     }
 
+    public static int countDigs(int n) {
+        int count = 0;
+        while (n != 0) {
+            n /= 10;
+            count++;
+        }
+        return count;
+    }
+
+    public static int rotateNumber(int n, int r) {
+        int dig = countDigs(n);
+        r = r % dig;
+        if (r < 0) {
+            r += dig;
+        }
+        int div = 1;
+        int mul = 1;
+        for (int i = 1; i <= dig; i++) {
+            if (i <= r) {
+                div *= 10;
+            } else {
+                mul *= 10;
+            }
+        }
+
+        int a = n % div;
+        int b = n / div;
+        return (a * mul + b);
+    }
 
     public static void main(String[] args) {
-        frequencyOfDig(scn.nextInt(), scn.nextInt());
+        System.out.println(rotateNumber(scn.nextInt(), scn.nextInt()));
     }
 }
-
