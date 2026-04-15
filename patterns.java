@@ -242,6 +242,25 @@ public class patterns {
         // 7   8	9	10	11	12	13	12	11	10	9	8	7	
     }
 
+    public static void numW(int n) {   
+        // 1												1	
+        // 1	2										2	1	
+        // 1	2	3								3	2	1	
+        // 1	2	3	4						4	3	2	1	
+        // 1	2	3	4	5				5	4	3	2	1	
+        // 1	2	3	4	5	6		6	5	4	3	2	1	
+        // 1	2	3	4	5	6	7	6	5	4	3	2	1	     
+    }
+
+    public static void binomialPattern(int n) {
+        // 1	
+        // 1	1	
+        // 1	2	1	
+        // 1	3	3	1	
+        // 1	4	6	4	1	
+        // 1	5	10	10	5	1	
+        // 1	6	15	20	15	6	1	
+    }
     public static void main(String[] args) {
         plusPattern(scn.nextInt());
     }
