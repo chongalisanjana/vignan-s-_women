@@ -82,30 +82,77 @@ public class patterns {
 
     public static void numPattern1(int n) {
         // 1
-        // 1   2
-        // 1   2   3
-        // 1   2   3   4
-        // 1   2   3   4   5
+        // 1 2
+        // 1 2 3
+        // 1 2 3 4
+        // 1 2 3 4 5
     }
 
     public static void numPattern2(int n) {
         // 1
-        // 2   3
-        // 4   5   6
-        // 7   8   9   10
-        // 11   12  13  14  15
+        // 2 3
+        // 4 5 6
+        // 7 8 9 10
+        // 11 12 13 14 15
     }
 
-
     public static void numPattern3(int n) {
-        //         1
-        //     2   3   2
-        // 3   4   5   4   3
-        //     2   3   2
-        //         1
+        // 1
+        // 2 3 2
+        // 3 4 5 4 3
+        // 2 3 2
+        // 1
+    }
+
+    public static void hollowSquare(int n) {
+        int nsp = n - 2;
+
+        for (int row = 0; row < n; row++) {
+            System.out.print("*\t");
+
+            for (int elem = 0; elem < nsp; elem++) {
+                if (row == 0 || row == n - 1) {
+                    System.out.print("*\t");
+                } else {
+                    System.out.print("\t");
+                }
+            }
+
+            System.out.println("*\t");
+
+        }
+    }
+
+    public static void cross(int n) {
+        int nsp = 0;
+        int inNsp = n - 2;
+        for (int row = 0; row < n; row++) {
+            for (int csp = 0; csp < nsp; csp++) {
+                System.out.print("\t");
+            }
+
+            System.out.print("*\t");
+
+            for (int inCsp = 0; inCsp < inNsp; inCsp++) {
+                System.out.print("\t");
+            }
+            if (row != n/2) {
+                System.out.println("*\t");
+            } else {
+                System.out.println("\t");
+            }
+
+            if (row < n / 2) {
+                nsp++;
+                inNsp -= 2;
+            } else {
+                nsp--;
+                inNsp += 2;
+            }
+        }
     }
 
     public static void main(String[] args) {
-        fiboPattern(scn.nextInt());
+        cross(scn.nextInt());
     }
 }
