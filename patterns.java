@@ -123,7 +123,7 @@ public class patterns {
         }
     }
 
-    public static void cross(int n) {
+    public static void cross1(int n) {
         int nsp = 0;
         int inNsp = n - 2;
         for (int row = 0; row < n; row++) {
@@ -136,7 +136,7 @@ public class patterns {
             for (int inCsp = 0; inCsp < inNsp; inCsp++) {
                 System.out.print("\t");
             }
-            if (row != n/2) {
+            if (row != n / 2) {
                 System.out.println("*\t");
             } else {
                 System.out.println("\t");
@@ -152,7 +152,34 @@ public class patterns {
         }
     }
 
+    public static void cross2(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j || i + j == n - 1) {
+                    System.out.print("*\t");
+                } else {
+                    System.out.print("\n");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void plusPattern (int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == n/2 || j == n/2) {
+                    System.out.print("*\t");
+                }
+                else {
+                    System.out.print("\t");
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
-        cross(scn.nextInt());
+        plusPattern(scn.nextInt());
     }
 }
