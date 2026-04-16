@@ -289,6 +289,16 @@ public class patterns {
         // 1 2 3
         // 1 2 3 4
         // 1 2 3 4 5
+
+        int nst = 1;
+        for(int row = 1; row <= n; row++){
+            int val = 1;
+            for(int cst = 1; cst <= nst; cst++){
+                System.out.print(val++ + "\t");
+            }
+            nst++;
+            System.out.println();
+        }
     }
 
     public static void numPattern2(int n) {
