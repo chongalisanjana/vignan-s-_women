@@ -156,6 +156,45 @@ public class patterns {
 
 
     // 16/04/26
+
+    public static void rytTri(int n) {
+        int nst = 1;
+        for (int row = 1; row <= n; row++) {
+            for (int cst = 1; cst <= nst; cst++)  {
+                System.out.print("*\t");
+            }
+            nst++;
+            System.out.println();
+        }
+    }
+
+    public static void inverseRytTri(int n) {
+        int nst = n;
+        for (int row = 1; row <= n; row++) {
+            for (int cst = 1; cst <= nst; cst++)  {
+                System.out.print("*\t");
+            }
+            nst--;
+            System.out.println();
+        }
+    }
+
+    public static void mirrorRytTri(int n) {
+        int nst = 1;
+        int nsp = n-1;
+        for (int row = 1; row <= n; row++) {
+            for (int csp = 1; csp <= nsp; csp++) {
+                System.out.print("\t");
+            }
+            for (int cst = 1; cst <= nst; cst++)  {
+                System.out.print("*\t");
+            }
+            nst++;
+            nsp--;
+            System.out.println();
+        }
+    }
+
     public static void diamondOfSpaces (int n) {
         // *	*	*	*	*	*	*	*		
         // *	*	*			*	*	*		
@@ -166,6 +205,32 @@ public class patterns {
         // *	*					*	*		
         // *	*	*			*	*	*		
         // *	*	*	*	*	*	*	*
+
+        int nst = n/2;
+        int nsp = 1;
+        for (int row = 1; row <= n; row++) {
+            for (int cst = 1; cst <= nst; cst++) {
+                System.out.print("*\t");
+            }
+
+            for (int csp = 1; csp <= nsp; csp++) {
+                System.out.print("\t");
+            }
+
+            for (int cst = 1; cst <= nst; cst++) {
+                System.out.print("*\t");
+            }
+
+            if (row <= n/2) {
+                nsp += 2;
+                nst--;
+            }
+            else {
+                nsp -= 2;
+                nst++;
+            }
+            System.out.println();
+        }
     }
 
     public static void diamondOfSpaces2(int n) {
@@ -206,6 +271,16 @@ public class patterns {
         // 125	625	3125	
         // 15625	78125	390625	1953125	
         // 9765625	48828125	244140625	1220703125	1808548329	
+
+        int a = 1;
+        for (int i = 1; i <= n; i++) {
+            for (int j =1; j <= i; j++) {
+                System.out.print(a + "\t");
+                int product = a * n;
+                a = product;
+            }
+            System.out.println();
+        }
     }
 
     public static void numPattern1(int n) {
@@ -250,7 +325,31 @@ public class patterns {
         // 1	2	3	4	5				5	4	3	2	1	
         // 1	2	3	4	5	6		6	5	4	3	2	1	
         // 1	2	3	4	5	6	7	6	5	4	3	2	1	     
+
+
+        int nsp = 2* n-3;
+        int nst = 1;
+
+        for (int row = 1; row <= n; row++) {
+            for (int cst = 1; cst <= nst; cst++) {
+                System.out.print("*\t");
+            }
+
+            for (int csp = 1; csp <= nsp; csp++) {
+                System.out.print("\t");
+            }
+
+            for (int cst = 1; cst <= nst; cst++) {
+                System.out.print("*\t");
+            }
+
+            nst++;
+            nsp -= 2;
+            System.out.println();
+        }
     }
+
+     
 
     public static void binomialPattern(int n) {
         // 1	
@@ -262,6 +361,6 @@ public class patterns {
         // 1	6	15	20	15	6	1	
     }
     public static void main(String[] args) {
-        plusPattern(scn.nextInt());
+        numW(scn.nextInt());
     }
 }
